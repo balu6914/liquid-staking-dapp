@@ -1,6 +1,13 @@
-require("@nomicfoundation/hardhat-toolbox");
+require("@nomicfoundation/hardhat-ethers");
+require("dotenv").config();
 
-/** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.27",
+  solidity: "0.8.18",
+  networks: {
+    amoy: {
+      url: process.env.POLYGON_RPC_URL, // The RPC URL for Polygon Amoy Testnet
+      accounts: [process.env.PRIVATE_KEY], // Your wallet private key
+      chainId: 80002, // Chain ID for Polygon Amoy Testnet
+    },
+  },
 };
